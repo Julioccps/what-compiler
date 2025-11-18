@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 
-// --- Original Structs (mostly unchanged) ---
 
 typedef enum {
     PARAM_TYPE_NO_ADDRESS, // Parameter like /x0A
@@ -22,7 +21,6 @@ typedef struct {
     int num_params;
 } Instruction;
 
-// --- New Generic Statement Structure ---
 
 // Represents a label definition in the code, e.g., "my_label:"
 typedef struct {
@@ -47,8 +45,6 @@ typedef struct StatementNode {
     struct StatementNode* next; // Pointer to the next statement in the list
 } StatementNode;
 
-// The entire program is now represented as a linked list of statements.
-// The "Program" is simply a pointer to the head of this list.
 typedef StatementNode* Program;
 
 
