@@ -8,7 +8,13 @@ This compiler is currently in the **planning phase** and is being developed alon
 
 ## Language Syntax
 
-What uses a character-based syntax for operations and memory management. The compiler ignores spaces and newlines.
+The official file extension for the language is `.wtf` (WhaT File).
+
+What uses a character-based syntax. The syntax is mostly free-form, as the compiler generally ignores spaces and newlines.
+
+The `x` character serves a dual purpose:
+1.  **Hexadecimal Prefix:** When followed by hex digits (e.g., `x0A`), it denotes a raw hexadecimal value.
+2.  **Whitespace Signifier:** When followed by a whitespace character (like a space, tab, or a literal newline), it makes that single whitespace character significant to the parser. This provides a more direct way to handle characters like newlines (which are stored as 0x0A) than writing them out as a two-character hex code.
 
 | Character | Meaning | Description |
 |-----------|---------|-------------|
@@ -49,4 +55,4 @@ What uses a character-based syntax for operations and memory management. The com
 
 ## Development
 
-This compiler is being designed to compile What language source code into Assembly code in the moment, but is planned to be compatible with the VanadiumOS architecture, once it's well defined and implemented.
+This compiler is being designed to compile What language source code into x86_64 Assembly code in the moment, but is planned to be compatible with the VanadiumOS architecture, once it's well defined and implemented.
