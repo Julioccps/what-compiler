@@ -8,7 +8,7 @@ This compiler is currently in the **planning phase** and is being developed alon
 
 ## Language Syntax
 
-The official file extension for the language is `.wtf` (WhaT File).
+The official file extension for the language is `.wtf` (**W**ha**T** **F**ile).
 
 What uses a character-based syntax. The syntax is mostly free-form, as the compiler generally ignores spaces and newlines.
 

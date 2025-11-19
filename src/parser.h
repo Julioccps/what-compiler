@@ -6,7 +6,7 @@
 
 typedef enum {
     PARAM_TYPE_NO_ADDRESS, // Parameter like /x0A
-    PARAM_TYPE_W_ADDRESS,  // Parameter like $label or $(_)
+    PARAM_TYPE_W_ADDRESS,  // Parameter like $(_)x4F
 } ParameterType;
 
 typedef struct {
