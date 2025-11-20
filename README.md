@@ -41,6 +41,22 @@ The `x` character serves a dual purpose:
 | `@x07` | ASSIGN   | `memory_pointer`, `value` | Assigns an immediate value to a register or memory location. If `value` is empty, allocates space in the `.bss` section. |
 | `@x08` | EXIT     | `exit_code` | Terminates the program with a given exit code. |
 
+## JMP Conditions
+| Value | Condition  | Description           |
+|-------|------------|-----------------------|
+| x00   | ALWAYS     | Unconditional jump    |
+| x01   | EQ         | Jump if equal         |
+| x02   | NE         | Jump if not equal     |
+| x03   | LT         | Jump if less than     |
+| x04   | GT         | Jump if greater than  |
+
+## Standard File Descriptors
+| Value | Descriptor |
+|-------|------------|
+| x00   | stdin      |
+| x01   | stdout     |
+| x02   | stderr     |
+
 ## Project Status
 
 ⚠️ **Planning Phase** - This compiler is currently in early development and requires:
