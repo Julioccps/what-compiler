@@ -25,7 +25,7 @@ uint8_t parse_hex_value(const char* str){
     // TODO
 }
 
-StatementNode* parse_instruction(ParserContext* ctx, Token* current_token){
+Statement* parse_instruction(ParserContext* ctx, Token* current_token){
     // TODO
 }
 

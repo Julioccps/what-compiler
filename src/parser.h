@@ -75,7 +75,7 @@ void free_program(Program* program);
 int read_next_token(ParserContext* ctx, Token* out_token);
 uint8_t parse_hex_value(const char* str);
 
-StatementNode* parse_instruction(ParserContext* ctx, Token* current_token);
+Statement* parse_instruction(ParserContext* ctx, Token* current_token);
 Parameter parse_parameter(ParserContext* ctx);
 
 int validate_instruction(Instruction* instr);

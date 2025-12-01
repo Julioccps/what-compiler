@@ -4,7 +4,7 @@ const int hex_lkt[256] = { // hexadecimal LookUp Table
     ['0'] = 1, ['1'] = 1, ['2'] = 1, ['3'] = 1, ['4'] = 1, ['5'] = 1, ['6'] = 1, ['7'] = 1, ['8'] = 1, ['9'] = 1, ['a'] = 1,
     ['b'] = 1, ['c'] = 1, ['d'] = 1, ['e'] = 1, ['f'] = 1, ['A'] = 1, ['B'] = 1, ['C'] = 1, ['D'] = 1, ['E'] = 1, ['F'] = 1
 };
-const int wtspce[256] = {[0x20] = 1, [0x0A] = 1, [0x09] = 1};
+const int wtspce[256] = {[0x20] = 1, [0x0A] = 1, [0x09] = 1}; // white space lookup table
 
 void parser_init(ParserContext* ctx, FILE* file){
     ctx->file = file;
