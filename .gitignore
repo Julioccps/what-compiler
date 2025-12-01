@@ -2,3 +2,5 @@ build/
 whatc
 compile_commands.json
 tags
+*.plist
+.cache/*
