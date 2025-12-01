@@ -35,12 +35,15 @@
 !_TAG_KIND_DESCRIPTION!C++	t,typedef	/typedefs/
 !_TAG_KIND_DESCRIPTION!C++	u,union	/union names/
 !_TAG_KIND_DESCRIPTION!C++	v,variable	/variable definitions/
-!_TAG_KIND_DESCRIPTION!CMake	D,option	/options specified with -D/
-!_TAG_KIND_DESCRIPTION!CMake	f,function	/functions/
-!_TAG_KIND_DESCRIPTION!CMake	m,macro	/macros/
-!_TAG_KIND_DESCRIPTION!CMake	p,project	/projects/
-!_TAG_KIND_DESCRIPTION!CMake	t,target	/targets/
-!_TAG_KIND_DESCRIPTION!CMake	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!JSON	a,array	/arrays/
+!_TAG_KIND_DESCRIPTION!JSON	b,boolean	/booleans/
+!_TAG_KIND_DESCRIPTION!JSON	n,number	/numbers/
+!_TAG_KIND_DESCRIPTION!JSON	o,object	/objects/
+!_TAG_KIND_DESCRIPTION!JSON	s,string	/strings/
+!_TAG_KIND_DESCRIPTION!JSON	z,null	/nulls/
+!_TAG_KIND_DESCRIPTION!Make	I,makefile	/makefiles/
+!_TAG_KIND_DESCRIPTION!Make	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!Make	t,target	/targets/
 !_TAG_KIND_DESCRIPTION!Markdown	S,subsection	/level 2 sections/
 !_TAG_KIND_DESCRIPTION!Markdown	T,l4subsection	/level 4 sections/
 !_TAG_KIND_DESCRIPTION!Markdown	c,chapter	/chapters/
@@ -55,7 +58,8 @@
 !_TAG_OUTPUT_VERSION	1.1	/current.age/
 !_TAG_PARSER_VERSION!C	1.1	/current.age/
 !_TAG_PARSER_VERSION!C++	2.2	/current.age/
-!_TAG_PARSER_VERSION!CMake	0.0	/current.age/
+!_TAG_PARSER_VERSION!JSON	0.0	/current.age/
+!_TAG_PARSER_VERSION!Make	1.1	/current.age/
 !_TAG_PARSER_VERSION!Markdown	1.1	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
 !_TAG_PROC_CWD	/home/julio/Dev/C/what-compiler/	//
@@ -76,10 +80,45 @@
 !_TAG_ROLE_DESCRIPTION!C++!module	imported	/imported with "imported ..."/
 !_TAG_ROLE_DESCRIPTION!C++!module	partOwner	/used for specifying a partition/
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	included	/included/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	optional	/optionally included/
+$(OBJ_DIR)	Makefile	/^$(OBJ_DIR):$/;"	t
+$(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c | $(OBJ_DIR)$/;"	t
+$(TARGET)	Makefile	/^$(TARGET): $(OBJS)$/;"	t
+0	compile_commands.json	/^      "\/usr\/bin\/gcc",$/;"	s	array:0.arguments
+0	compile_commands.json	/^      "\/usr\/bin\/gcc",$/;"	s	array:1.arguments
+0	compile_commands.json	/^      "\/usr\/bin\/gcc",$/;"	s	array:2.arguments
+0	compile_commands.json	/^  {$/;"	o
+1	compile_commands.json	/^      "-Wall",$/;"	s	array:0.arguments
+1	compile_commands.json	/^      "-Wall",$/;"	s	array:1.arguments
+1	compile_commands.json	/^      "-Wall",$/;"	s	array:2.arguments
+1	compile_commands.json	/^  {$/;"	o
+2	compile_commands.json	/^      "-Wextra",$/;"	s	array:0.arguments
+2	compile_commands.json	/^      "-Wextra",$/;"	s	array:1.arguments
+2	compile_commands.json	/^      "-Wextra",$/;"	s	array:2.arguments
+2	compile_commands.json	/^  {$/;"	o
+3	compile_commands.json	/^      "-std=c99",$/;"	s	array:0.arguments
+3	compile_commands.json	/^      "-std=c99",$/;"	s	array:1.arguments
+3	compile_commands.json	/^      "-std=c99",$/;"	s	array:2.arguments
+4	compile_commands.json	/^      "-Isrc",$/;"	s	array:0.arguments
+4	compile_commands.json	/^      "-Isrc",$/;"	s	array:1.arguments
+4	compile_commands.json	/^      "-Isrc",$/;"	s	array:2.arguments
+5	compile_commands.json	/^      "-c",$/;"	s	array:0.arguments
+5	compile_commands.json	/^      "-c",$/;"	s	array:1.arguments
+5	compile_commands.json	/^      "-c",$/;"	s	array:2.arguments
+6	compile_commands.json	/^      "-o",$/;"	s	array:0.arguments
+6	compile_commands.json	/^      "-o",$/;"	s	array:1.arguments
+6	compile_commands.json	/^      "-o",$/;"	s	array:2.arguments
+7	compile_commands.json	/^      "build\/main.o",$/;"	s	array:0.arguments
+7	compile_commands.json	/^      "build\/parser.o",$/;"	s	array:1.arguments
+7	compile_commands.json	/^      "build\/parser_utils.o",$/;"	s	array:2.arguments
+8	compile_commands.json	/^      "src\/main.c"$/;"	s	array:0.arguments
+8	compile_commands.json	/^      "src\/parser.c"$/;"	s	array:1.arguments
+8	compile_commands.json	/^      "src\/parser_utils.c"$/;"	s	array:2.arguments
 About the Project	README.md	/^## About the Project$/;"	s	chapter:What Compiler
 BUFFER_MAX_SIZE	src/parser_utils.h	/^#define BUFFER_MAX_SIZE /;"	d
-CMAKE_C_STANDARD	CMakeLists.txt	/^set(CMAKE_C_STANDARD 99)$/;"	v
-CMAKE_C_STANDARD_REQUIRED	CMakeLists.txt	/^set(CMAKE_C_STANDARD_REQUIRED ON)$/;"	v
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -std=c99 -Isrc$/;"	m
 Development	README.md	/^## Development$/;"	s	chapter:What Compiler
 Example Syntax	README.md	/^### Example Syntax$/;"	S	section:What Compiler""Language Syntax
 Function look-up table	README.md	/^## Function look-up table$/;"	s	chapter:What Compiler
@@ -87,6 +126,8 @@ Instruction	src/parser.h	/^} Instruction;$/;"	t	typeref:struct:__anon4611dbbf050
 JMP Conditions	README.md	/^## JMP Conditions$/;"	s	chapter:What Compiler
 LabelDefinition	src/parser.h	/^}LabelDefinition;$/;"	t	typeref:struct:__anon4611dbbf0608
 Language Syntax	README.md	/^## Language Syntax$/;"	s	chapter:What Compiler
+OBJS	Makefile	/^OBJS = $(patsubst $(SRC_DIR)\/%.c, $(OBJ_DIR)\/%.o, $(SRCS))$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR = build$/;"	m
 PARAM_TYPE_NO_ADDRESS	src/parser.h	/^    PARAM_TYPE_NO_ADDRESS, \/\/ Parameter like \/x0A$/;"	e	enum:__anon4611dbbf0303
 PARAM_TYPE_W_ADDRESS	src/parser.h	/^    PARAM_TYPE_W_ADDRESS,  \/\/ Parameter like $(_)x4F$/;"	e	enum:__anon4611dbbf0303
 PARSER_H	src/parser.h	/^#define PARSER_H$/;"	d
@@ -98,12 +139,15 @@ Program	src/parser.h	/^} Program;$/;"	t	typeref:struct:__anon4611dbbf0908
 Project Status	README.md	/^## Project Status$/;"	s	chapter:What Compiler
 Related Projects	README.md	/^## Related Projects$/;"	s	chapter:What Compiler
 SECTOR_SIZE	src/parser_utils.h	/^#define SECTOR_SIZE /;"	d
+SRCS	Makefile	/^SRCS = $(wildcard $(SRC_DIR)\/*.c)$/;"	m
+SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
 STATEMENT_INSTRUCTION	src/parser.h	/^    STATEMENT_INSTRUCTION,$/;"	e	enum:__anon4611dbbf0703
 STATEMENT_LABEL_DEFINITION	src/parser.h	/^    STATEMENT_LABEL_DEFINITION,$/;"	e	enum:__anon4611dbbf0703
 Standard File Descriptors	README.md	/^## Standard File Descriptors$/;"	s	chapter:What Compiler
 Statement	src/parser.h	/^} Statement;$/;"	t	typeref:struct:StatementNode
 StatementNode	src/parser.h	/^typedef struct StatementNode {$/;"	s
 StatementType	src/parser.h	/^} StatementType;$/;"	t	typeref:enum:__anon4611dbbf0703
+TARGET	Makefile	/^TARGET = whatc$/;"	m
 TOKEN_AUTO_ALLOC	src/parser.h	/^    TOKEN_AUTO_ALLOC,$/;"	e	enum:__anon4611dbbf0103
 TOKEN_EOF	src/parser.h	/^    TOKEN_EOF,$/;"	e	enum:__anon4611dbbf0103
 TOKEN_ERROR	src/parser.h	/^    TOKEN_ERROR$/;"	e	enum:__anon4611dbbf0103
@@ -128,13 +172,24 @@ __anon4611dbbf080a	src/parser.h	/^    union {$/;"	u	struct:StatementNode
 __anon4611dbbf0908	src/parser.h	/^typedef struct{$/;"	s
 __anon870be22f0108	src/parser_utils.h	/^typedef struct{$/;"	s
 address_label	src/parser.h	/^    const char* address_label;  \/\/ For PARAM_TYPE_W_ADDRESS, can be a label name or "_"$/;"	m	struct:__anon4611dbbf0408	typeref:typename:const char *
+all	Makefile	/^all: $(TARGET)$/;"	t
+arguments	compile_commands.json	/^    "arguments": [$/;"	a	object:0
+arguments	compile_commands.json	/^    "arguments": [$/;"	a	object:1
+arguments	compile_commands.json	/^    "arguments": [$/;"	a	object:2
 as	src/parser.h	/^    } as;$/;"	m	struct:StatementNode	typeref:union:StatementNode::__anon4611dbbf080a
 bytes_read	src/parser_utils.h	/^    int bytes_read;$/;"	m	struct:__anon870be22f0108	typeref:typename:int
 capacity	src/parser.h	/^    size_t capacity;$/;"	m	struct:__anon4611dbbf0908	typeref:typename:size_t
 char_buffer	src/parser_utils.h	/^    char char_buffer[BUFFER_MAX_SIZE];$/;"	m	struct:__anon870be22f0108	typeref:typename:char[]
 char_number	src/parser_utils.h	/^    int char_number;$/;"	m	struct:__anon870be22f0108	typeref:typename:int
+clean	Makefile	/^clean:$/;"	t
 count	src/parser.h	/^    size_t count;$/;"	m	struct:__anon4611dbbf0908	typeref:typename:size_t
 current_char	src/parser_utils.h	/^    char current_char;$/;"	m	struct:__anon870be22f0108	typeref:typename:char
+directory	compile_commands.json	/^    "directory": "\/home\/julio\/Dev\/C\/what-compiler",$/;"	s	object:0
+directory	compile_commands.json	/^    "directory": "\/home\/julio\/Dev\/C\/what-compiler",$/;"	s	object:1
+directory	compile_commands.json	/^    "directory": "\/home\/julio\/Dev\/C\/what-compiler",$/;"	s	object:2
+file	compile_commands.json	/^    "file": "\/home\/julio\/Dev\/C\/what-compiler\/src\/main.c",$/;"	s	object:0
+file	compile_commands.json	/^    "file": "\/home\/julio\/Dev\/C\/what-compiler\/src\/parser.c",$/;"	s	object:1
+file	compile_commands.json	/^    "file": "\/home\/julio\/Dev\/C\/what-compiler\/src\/parser_utils.c",$/;"	s	object:2
 file	src/parser_utils.h	/^    FILE* file;$/;"	m	struct:__anon870be22f0108	typeref:typename:FILE *
 free_program	src/parser.c	/^void free_program(Program* program){$/;"	f	typeref:typename:void
 function_id	src/parser.h	/^    uint8_t function_id;$/;"	m	struct:__anon4611dbbf0508	typeref:typename:uint8_t
@@ -151,10 +206,13 @@ main	src/main.c	/^int main(int argc, char* argv[]){$/;"	f	typeref:typename:int
 name	src/parser.h	/^    char* name;$/;"	m	struct:__anon4611dbbf0608	typeref:typename:char *
 next_char	src/parser_utils.h	/^    char next_char;$/;"	m	struct:__anon870be22f0108	typeref:typename:char
 num_params	src/parser.h	/^    int num_params;$/;"	m	struct:__anon4611dbbf0508	typeref:typename:int
+output	compile_commands.json	/^    "output": "\/home\/julio\/Dev\/C\/what-compiler\/build\/main.o"$/;"	s	object:0
+output	compile_commands.json	/^    "output": "\/home\/julio\/Dev\/C\/what-compiler\/build\/parser.o"$/;"	s	object:1
+output	compile_commands.json	/^    "output": "\/home\/julio\/Dev\/C\/what-compiler\/build\/parser_utils.o"$/;"	s	object:2
 params	src/parser.h	/^    Parameter* params;$/;"	m	struct:__anon4611dbbf0508	typeref:typename:Parameter *
 parse_file	src/parser.c	/^Program parse_file(const char* filename, ParserContext* ctx){$/;"	f	typeref:typename:Program
 parse_hex_value	src/parser.c	/^uint8_t parse_hex_value(const char* str){$/;"	f	typeref:typename:uint8_t
-parse_instruction	src/parser.c	/^StatementNode* parse_instruction(ParserContext* ctx, Token* current_token){$/;"	f	typeref:typename:StatementNode *
+parse_instruction	src/parser.c	/^Statement* parse_instruction(ParserContext* ctx, Token* current_token){$/;"	f	typeref:typename:Statement *
 parse_parameter	src/parser.c	/^Parameter parse_parameter(ParserContext* ctx){$/;"	f	typeref:typename:Parameter
 parser_advance	src/parser_utils.c	/^char parser_advance(ParserContext* ctx){$/;"	f	typeref:typename:char
 parser_error	src/parser.c	/^void parser_error(int line, const char* message){$/;"	f	typeref:typename:void
@@ -170,6 +228,4 @@ type	src/parser.h	/^    TokenType type;$/;"	m	struct:__anon4611dbbf0208	typeref:
 validate_instruction	src/parser.c	/^int validate_instruction(Instruction* instr){$/;"	f	typeref:typename:int
 value	src/parser.h	/^    int value; \/\/ could be uint8_t | Think of that later, not now$/;"	m	struct:__anon4611dbbf0208	typeref:typename:int
 value	src/parser.h	/^    uint8_t value;$/;"	m	struct:__anon4611dbbf0408	typeref:typename:uint8_t
-what-compiler	CMakeLists.txt	/^project(what-compiler)$/;"	p
-whatc	CMakeLists.txt	/^add_executable(whatc src\/main.c)$/;"	t
 wtspce	src/parser_utils.c	/^const int wtspce[256] = {[0x20] = 1, [0x0A] = 1, [0x09] = 1}; \/\/ white space lookup table$/;"	v	typeref:typename:const int[256]
