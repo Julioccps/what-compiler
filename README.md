@@ -20,8 +20,11 @@ The `x` character serves a dual purpose:
 |-----------|---------|-------------|
 | `@` | Function Selector | Selects a function to be executed (e.g., `@x01` for NAND). |
 | `/` | Parameter | A parameter with no address provider. |
+| `^` | Call section | The equivalent of a `call` instruction in x86_64 Assembly |
 | `$` | Addressed Parameter | A parameter with a specified address or register. |
 | `_` | Auto-allocate | Used with `$` to auto-allocate memory or choose a register. |
+| `.` | return | Not the equivalent of `return` on other programming languages,
+    but the `ret` in Assembly |
 | `x` | Hexadecimal Value | Indicates the following value is in hexadecimal format (e.g., `x0A`). |
 | `\` | Comment | The rest of the line after `\` is ignored. |
 | `:` | Section/Label | A raw text string followed by a colon defines a section or label. |
@@ -60,8 +63,6 @@ The `x` character serves a dual purpose:
 ## Project Status
 
 ⚠️ **Planning Phase** - This compiler is currently in early development and requires:
-- File system integration
-- Executable architecture specification
 - Parser implementation
 - Code generation components
 
@@ -71,4 +72,4 @@ The `x` character serves a dual purpose:
 
 ## Development
 
-This compiler is being designed to compile What language source code into x86_64 Assembly code in the moment, but is planned to be compatible with the VanadiumOS architecture, once it's well defined and implemented.
+This compiler is being designed to compile What language source code into ARM Assembly, as VanadiumOS will transition a RTOS(Real Time Operating system) in ARM architecture.
