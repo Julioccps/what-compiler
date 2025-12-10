@@ -18,16 +18,18 @@ The `x` character serves a dual purpose:
 
 | Character | Meaning | Description |
 |-----------|---------|-------------|
-| `@` | Function Selector | Selects a function to be executed (e.g., `@x01` for NAND). |
+| @ | Function Selector | Selects a function to be executed (e.g., @x01 for NAND). In ARM, this corresponds to `SVC #imm` for syscalls. |
 | `/` | Parameter | A parameter with no address provider. |
-| `^` | Call section | The equivalent of a `call` instruction in x86_64 Assembly |
+| ^ | Call section | The equivalent of a `BL label` instruction in ARM Assembly |
 | `$` | Addressed Parameter | A parameter with a specified address or register. |
 | `_` | Auto-allocate | Used with `$` to auto-allocate memory or choose a register. |
-| `.` | return | Not the equivalent of `return` on other programming languages,
-    but the `ret` in Assembly |
+| . | return | Not the equivalent of `return` on other programming languages,
+    but the `BX LR` in ARM Assembly |
 | `x` | Hexadecimal Value | Indicates the following value is in hexadecimal format (e.g., `x0A`). |
 | `\` | Comment | The rest of the line after `\` is ignored. |
 | `:` | Section/Label | A raw text string followed by a colon defines a section or label. |
+
+For address operations indicated by parentheses `()`, values between `x00` and `x0F` inclusive represent registers `r0-r15`. Any other value within an address operation refers to a memory address. If a specific value is set, it resides in the `.data` section; if it's `x00`, it's located in the `.bss` section. Each addressable unit is 32 bits (4 bytes) long, allowing for 32-bit values. The address space supported is `x00` to `xFF` (`0-255`), as 'if the developer needs more than 256 variables in an esoteric project they are probably doing something wrong'.
 
 ### Example Syntax
 `@x05/x01$(_)x0A \ This is a comment`
