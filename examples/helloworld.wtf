@@ -1,0 +1,8 @@
+\ "Hello, World!" program
+@x07/x10/x48656C6C
+@x07/x11/x6F2C x x57
+@x07/x12/x6F726C64
+@x07/X13/X21 x
+x00
+@x05/x01$(x10)
+@x08/x00

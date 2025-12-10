@@ -12,7 +12,7 @@ The official file extension for the language is `.wtf` (**W**ha**T** **F**ile).
 
 What uses a character-based syntax. The syntax is mostly free-form, as the compiler generally ignores spaces and newlines.
 
-The `x` character serves a dual purpose:
+The `x` (or `X`) character serves a dual purpose:
 1.  **Hexadecimal Prefix:** When followed by hex digits (e.g., `x0A`), it denotes a raw hexadecimal value.
 2.  **Whitespace Signifier:** When followed by a whitespace character (like a space, tab, or a literal newline), it makes that single whitespace character significant to the parser. This provides a more direct way to handle characters like newlines (which are stored as 0x0A) than writing them out as a two-character hex code.
 
@@ -32,7 +32,16 @@ The `x` character serves a dual purpose:
 For address operations indicated by parentheses `()`, values between `x00` and `x0F` inclusive represent registers `r0-r15`. Any other value within an address operation refers to a memory address. If a specific value is set, it resides in the `.data` section; if it's `x00`, it's located in the `.bss` section. Each addressable unit is 32 bits (4 bytes) long, allowing for 32-bit values. The address space supported is `x00` to `xFF` (`0-255`), as 'if the developer needs more than 256 variables in an esoteric project they are probably doing something wrong'.
 
 ### Example Syntax
-`@x05/x01$(_)x0A \ This is a comment`
+```wtf
+\ "Hello, World!" program
+@x07/x10/x48656C6C
+@x07/x11/x6F2C x x57
+@x07/x12/x6F726C64
+@x07/X13/X21 x
+x00
+@x05/x01$(x10)
+@x08/x00
+```
 
 ## Function look-up table
 | Value  | Function | Parameters | Description |
@@ -41,7 +50,7 @@ For address operations indicated by parentheses `()`, values between `x00` and `
 | `@x02` | COMP     | `reg_a`, `reg_b` | Compares two values. |
 | `@x03` | MOVE/SHIFT | `reg_a`, `direction`, `quantity` | Shifts the bits in a register. `reg_a` can be immediate. `direction` is `x00` for right, `x01` for left. |
 | `@x04` | JMP      | `condition`, `target_address` | Jumps to a target address based on a condition. `target_address` can be a section label. |
-| `@x05` | WRITE    | `file_descriptor`, `memory_pointer` | Writes from a memory location to a file descriptor (e.g., stdout). `memory_pointer` must be an addressed parameter. |
+| `@x05` | WRITE    | `file_descriptor`, `memory_pointer` | Writes from a memory location to a file descriptor (e.g., stdout). `memory_pointer` must be an addressed parameter. Stops writing when a null character (`x00`) is encountered. |
 | `@x06` | READ     | `file_descriptor`, `memory_pointer`/`register` | Reads from a file descriptor into memory or a register. |
 | `@x07` | ASSIGN   | `memory_pointer`, `value` | Assigns an immediate value to a register or memory location. If `value` is empty, allocates space in the `.bss` section. |
 | `@x08` | EXIT     | `exit_code` | Terminates the program with a given exit code. |
